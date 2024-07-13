@@ -1,46 +1,64 @@
-# Dev 分支推送部署预览
-## 仅部署 Win 端
-name: Build Dev
-
+# 关于自定义Github Action工作流：请参照 https://docs.github.com/zh/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
+# 仅部署 Win 端
+name: Build Master
 on:
   push:
     branches:
-      - dev
       - master
-
 jobs:
-  release:
-    name: Build Website
-    runs-on: windows-latest
+  # build job（构建项目，生成静态文件）
+  build:
+    # name: Build Website
+    runs-on: ubuntu-latest  # 改为了Ubuntu部署
 
     steps:
-      # 检出 Git 仓库
-      - name: Check out git repository
+      - name: Check out git repository  # 检出 Git 仓库
         uses: actions/checkout@v4.1.1
-      # 安装 Node.js
-      - name: Install Node.js
+      - name: Configure GitHub Pages    # 助于支持从任何静态站点生成器部署到 GitHub Pages
+        uses: actions/configure-pages@v3
+      # - name: Copy .env .env.example    # 复制环境变量文件，如果已经有了 .env 文件就不需要
+      #   shell: pwsh # 原本是 Windows部署
+      #   run: |
+      #     if (-not (Test-Path .env)) {
+      #       Copy-Item .env.example .env
+      #     } else {
+      #       Write-Host ".env file already exists. Skipping the copy step."
+      #     }
+
+      - name: Install Node.js         # 安装 Node.js
         uses: actions/setup-node@v4.0.0
         with:
           node-version: "18.x"
-      # 复制环境变量文件
-      - name: Copy .env.example
-        run: |
-          if (-not (Test-Path .env)) {
-            Copy-Item .env.example .env
-          } else {
-            Write-Host ".env file already exists. Skipping the copy step."
-          }
-      # 安装项目依赖
-      - name: Install Dependencies
+      - name: Install Dependencies    # 安装项目依赖
         run: npm install
+
       # 构建程序
       - name: Build Website
         run: npm run build
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      # 上传构建产物
+      # 打包和上传构建产物
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: Home
           path: dist
+
+
+  # deployment job（发布项目到 Github Pages）
+  deploy:
+    # name: deploy artifact
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2
+    
