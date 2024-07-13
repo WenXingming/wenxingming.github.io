@@ -15,7 +15,7 @@ jobs:
   # build job（构建项目，生成静态文件）
   build:
     # name: Build Website
-    runs-on: windows-latest  # 改为了Ubuntu部署
+    runs-on: ubuntu-latest  # 改为了Ubuntu部署
 
     steps:
       - name: Check out git repository  # 检出 Git 仓库
@@ -62,7 +62,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Print GITHUB_TOKEN
         run: echo ${{ secrets.GITHUB_TOKEN }}
