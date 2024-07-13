@@ -61,10 +61,7 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Deploy to GitHub Pages
-        id: Deployment
+        id: Home
         uses: actions/deploy-pages@v2
     
