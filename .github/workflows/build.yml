@@ -47,18 +47,14 @@ jobs:
 
   # deployment job（发布项目到 Github Pages）
   deploy:
-    # name: deploy artifact
     needs: build
-
     permissions:
       contents: read
       pages: write
       id-token: write
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
@@ -66,4 +62,24 @@ jobs:
         uses: actions/deploy-pages@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+  # deploy:
+  #   # name: deploy artifact
+  #   needs: build
+
+  #   permissions:
+  #     contents: read
+  #     pages: write
+  #     id-token: write
+
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v2
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
     
