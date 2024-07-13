@@ -17,7 +17,7 @@ jobs:
       - name: Configure GitHub Pages    # 助于支持从任何静态站点生成器部署到 GitHub Pages
         uses: actions/configure-pages@v5
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       # - name: Copy .env .env.example    # 复制环境变量文件，如果已经有了 .env 文件就不需要。注释掉了就build失败，原来是因为.gitignore没有上传.env
       #   shell: pwsh # 原本是 Windows部署
       #   run: |
@@ -38,7 +38,7 @@ jobs:
       - name: Build Website
         run: npm run build
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # 打包和上传构建产物
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -65,5 +65,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
     
