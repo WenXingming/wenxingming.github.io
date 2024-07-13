@@ -16,14 +16,14 @@ jobs:
         uses: actions/checkout@v4.1.1
       - name: Configure GitHub Pages    # 助于支持从任何静态站点生成器部署到 GitHub Pages
         uses: actions/configure-pages@v5
-      # - name: Copy .env .env.example    # 复制环境变量文件，如果已经有了 .env 文件就不需要
-      #   shell: pwsh # 原本是 Windows部署
-      #   run: |
-      #     if (-not (Test-Path .env)) {
-      #       Copy-Item .env.example .env
-      #     } else {
-      #       Write-Host ".env file already exists. Skipping the copy step."
-      #     }
+      - name: Copy .env .env.example    # 复制环境变量文件，如果已经有了 .env 文件就不需要？
+        shell: pwsh # 原本是 Windows部署
+        run: |
+          if (-not (Test-Path .env)) {
+            Copy-Item .env.example .env
+          } else {
+            Write-Host ".env file already exists. Skipping the copy step."
+          }
 
       - name: Install Node.js         # 安装 Node.js
         uses: actions/setup-node@v4.0.0
