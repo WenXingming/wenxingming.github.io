@@ -16,6 +16,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Configure GitHub Pages    # 助于支持从任何静态站点生成器部署到 GitHub Pages
         uses: actions/configure-pages@v5
+        with:
+          token: ${{ github.token }}
       # - name: Copy .env .env.example    # 复制环境变量文件，如果已经有了 .env 文件就不需要。注释掉了就build失败，原来是因为.gitignore没有上传.env
       #   shell: pwsh # 原本是 Windows部署
       #   run: |
@@ -43,7 +45,6 @@ jobs:
         with:
           path: dist
 
-
   # deployment job（发布项目到 Github Pages）
   deploy:
     # name: deploy artifact
@@ -56,11 +57,12 @@ jobs:
 
     environment:
       name: github-pages
-      url: ${{steps.deployment.outputs.page_url}}
+      url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v2
         with:
           token: ${{ github.token }}
