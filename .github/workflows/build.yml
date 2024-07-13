@@ -46,36 +46,35 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
-      # 打包到分支 gh-pages
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
-          publish_branch: gh-pages
-
-
-      # # 打包和上传构建产物
-      # - name: Upload GitHub Pages artifact
-      #   uses: actions/upload-pages-artifact@v3
+      # # 打包到分支 gh-pages
+      # - name: Deploy to gh-pages
+      #   uses: peaceiris/actions-gh-pages@v4
       #   with:
-      #     path: dist
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: dist
+      #     publish_branch: gh-pages
 
-  # # deployment job（发布项目到 Github Pages）
-  # deploy:
-  #   # name: deploy artifact
-  #   needs: build
-  #   permissions:
-  #     contents: read
-  #     pages: write
-  #     id-token: write
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v2
-  #       with:
-  #         token: ${{ github.token }}
+      # 打包和上传构建产物
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  # deployment job（发布项目到 Github Pages）
+  deploy:
+    # name: deploy artifact
+    needs: build
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+        with:
+          token: ${{ github.token }}
