@@ -15,7 +15,7 @@ jobs:
       - name: Check out git repository  # 检出 Git 仓库
         uses: actions/checkout@v4.1.1
       - name: Configure GitHub Pages    # 助于支持从任何静态站点生成器部署到 GitHub Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
       # - name: Copy .env .env.example    # 复制环境变量文件，如果已经有了 .env 文件就不需要
       #   shell: pwsh # 原本是 Windows部署
       #   run: |
@@ -28,7 +28,7 @@ jobs:
       - name: Install Node.js         # 安装 Node.js
         uses: actions/setup-node@v4.0.0
         with:
-          node-version: "18.x"
+          node-version: "20.x"
       - name: Install Dependencies    # 安装项目依赖
         run: npm install
 
