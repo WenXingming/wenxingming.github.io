@@ -134,12 +134,12 @@ export const siteDateStatistics = (startDate) => {
   if (differenceInYears >= 1) {
     return `本站已经苟活了 ${Math.floor(differenceInYears)} 年 ${Math.floor(
       differenceInMonths % 12,
-    )} 月 ${Math.round(differenceInDays % 30)} 天`;
+    )} 月 ${Math.round(differenceInDays % 30)} 天 ~ 并将继续苟活下去！`;
   } else if (differenceInMonths >= 1) {
     return `本站已经苟活了 ${Math.floor(differenceInMonths)} 月 ${Math.round(
       differenceInDays % 30,
-    )} 天`;
+    )} 天 ~ 并将继续苟活下去！`;
   } else {
-    return `本站已经苟活了 ${Math.round(differenceInDays)} 天`;
+    return `本站已经苟活了 ${Math.round(differenceInDays)} 天 ~ 并将继续苟活下去！`;
   }
 };
