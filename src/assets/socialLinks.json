@@ -14,7 +14,7 @@
   {
     "name": "QQ",
     "icon": "/images/icon/qq.png",
-    "tip": "有什么事吗 ？ Q 我吧 ~",
+    "tip": "有什么事吗？Q我吧 ~",
     "url": "https://res.abeim.cn/api/qq/?qq=2801650811"
   },
   {
@@ -32,7 +32,7 @@
   {
     "name": "Telegram",
     "icon": "/images/icon/telegram.png",
-    "tip": "No use now ~ ~",
+    "tip": "No use now ~",
     "url": "https://t.me/"
   }
 ]
