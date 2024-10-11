@@ -14,25 +14,25 @@
   {
     "name": "QQ",
     "icon": "/images/icon/qq.png",
-    "tip": "有什么事吗",
+    "tip": "有什么事吗 ？ Q 我吧 ~",
     "url": "https://res.abeim.cn/api/qq/?qq=2801650811"
   },
   {
     "name": "Email",
     "icon": "/images/icon/email.png",
-    "tip": "来封 Email ~",
+    "tip": "给我来封 Email ~",
     "url": "mailto:2801650811@qq.com"
   },
   {
     "name": "Twitter",
     "icon": "/images/icon/twitter.png",
-    "tip": "你懂的 ~",
+    "tip": "No use now ~",
     "url": "https://twitter.com/"
   },
   {
     "name": "Telegram",
     "icon": "/images/icon/telegram.png",
-    "tip": "你懂的 ~",
+    "tip": "No use now ~ ~",
     "url": "https://t.me/"
   }
 ]
