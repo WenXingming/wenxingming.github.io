@@ -1,5 +1,5 @@
 <template>
-  <div class="more-content">您可在此编写任意内容</div>
+  <div class="more-content">Love ❤❤ 一直都在 ~ </div>
 </template>
 
 <style lang="scss" scoped>
