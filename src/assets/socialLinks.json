@@ -1,25 +1,25 @@
 [
   {
     "name": "BiliBili",
-    "icon": "/images/icon/bilibili-brands-solid.svg",
+    "icon": "/images/icon/bilibili.svg",
     "tip": "(゜-゜)つロ 干杯 ~",
     "url": "https://space.bilibili.com/436373208"
   },
   {
     "name": "Github",
-    "icon": "/images/icon/github.png",
+    "icon": "/images/icon/github.svg",
     "tip": "去 Github 看看",
     "url": "https://github.com/WenXingming"
   },
   {
     "name": "QQ",
-    "icon": "/images/icon/qq.png",
+    "icon": "/images/icon/qq.svg",
     "tip": "有什么事吗？Q我吧 ~",
     "url": "https://res.abeim.cn/api/qq/?qq=2801650811"
   },
   {
     "name": "Email",
-    "icon": "/images/icon/email.png",
+    "icon": "/images/icon/email.svg",
     "tip": "给我来封 Email ~",
     "url": "mailto:2801650811@qq.com"
   },
