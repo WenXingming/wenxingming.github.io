@@ -6,16 +6,10 @@
     "url": "https://space.bilibili.com/436373208"
   },
   {
-    "name":"netEaseMusic",
+    "name":"NetEaseMusic",
     "icon":"/images/icon/music-solid.svg",
     "tip":"一起听歌吧 ~",
     "url":"https://music.163.com/#/user/home?id=476838055"
-  },
-  {
-    "name": "Github",
-    "icon": "/images/icon/github.png",
-    "tip": "去 Github 看看 ~",
-    "url": "https://github.com/WenXingming"
   },
   {
     "name": "QQ",
@@ -25,20 +19,14 @@
   },
   {
     "name": "Email",
-    "icon": "/images/icon/email.svg",
+    "icon": "/images/icon/envelope-solid.svg",
     "tip": "给我来封 Email ~",
     "url": "mailto:2801650811@qq.com"
   },
   {
-    "name": "Twitter",
-    "icon": "/images/icon/twitter.png",
-    "tip": "No use now ~",
-    "url": "https://twitter.com/"
-  },
-  {
-    "name": "Telegram",
-    "icon": "/images/icon/telegram.png",
-    "tip": "No use now ~",
-    "url": "https://t.me/"
+    "name": "Github",
+    "icon": "/images/icon/github.png",
+    "tip": "去 Github 看看 ~",
+    "url": "https://github.com/WenXingming"
   }
 ]
