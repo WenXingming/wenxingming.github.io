@@ -6,6 +6,12 @@
     "url": "https://space.bilibili.com/436373208"
   },
   {
+    "name":"netEaseMusic",
+    "icon":"/images/icon/music-solid.svg",
+    "tip":"一起听歌吧 ~",
+    "url":"https://music.163.com/#/user/home?id=476838055"
+  },
+  {
     "name": "Github",
     "icon": "/images/icon/github.png",
     "tip": "去 Github 看看 ~",
