@@ -19,7 +19,7 @@
   },
   {
     "name": "Email",
-    "icon": "/images/icon/envelope-solid.svg",
+    "icon": "/images/icon/email.svg",
     "tip": "给我来封 Email ~",
     "url": "mailto:2801650811@qq.com"
   },
